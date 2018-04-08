@@ -1,5 +1,5 @@
-<ion-modal-view>
-  <ion-content ng-controller="EventViewCtrl" has-bouncing="false">
+<ion-modal-view ng-controller="EventViewCtrl">
+  <ion-content has-bouncing="false">
     <div class="top-banner card-body carnaval-card">
       <div class="bkdrop"></div>
       <h1>Pós-Carnaval</h1>
@@ -8,7 +8,7 @@
   </ion-content>
   <ion-scroll direction="x" class="overscroll">
       <div class="events-carousel">
-          <div class="card place-card">
+          <div class="card place-card" ng-click="toggleSecondModal()">
             <div class="place-img" back-img="img/paulista.jpg">
               <div class="friends-list">
                   <img src="img/max.png" alt="">
@@ -23,7 +23,7 @@
               <span class="time">15:30</span>
             </div>
           </div>
-          <div class="card place-card">
+          <div class="card place-card" ng-click="toggleSecondModal()">
             <div class="place-img" back-img="img/augusta.jpg">
               <div class="friends-list">
                   <img src="img/adam.jpg" alt="">
@@ -44,4 +44,36 @@
           </div>
       </div>
   </ion-scroll>
+  <div class="bkdrop" ng-show="showModal"></div>
+  <div class="card supermodal" ng-show="showModal">
+    <div class="super-img" back-img="img/augusta.jpg">
+      <span class="close" ng-click="toggleSecondModal()">&times;</span>
+    </div>
+    <div class="supertime">
+        <div class="date">
+          <span class="month">FEV</span>
+          <span class="day">17</span>
+        </div>
+        <div class="placecombo">
+          <span class="place">Casa Comigo?</span>
+          <span class="location">R. Caio Prado, 256</span>
+        </div>
+        <div class="time">17:00</div>
+    </div>
+    <ion-scroll direction="x">
+      <div class="friends-carousel">
+        <div class="friend">
+          <img src="img/adam.jpg" alt="">
+          <span class="text">Adam</span>
+        </div>
+        <div class="friend">
+            <img src="img/ben.png" alt="">
+            <span class="text">Ben</span>
+          </div>
+      </div>
+    </ion-scroll>
+    <button class="go-button">
+      <span class="fa fa-check"></span> Participar
+    </button>
+  </div>
 </ion-modal-view>

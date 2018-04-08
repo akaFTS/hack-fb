@@ -12,7 +12,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('EventViewCtrl', function($scope, $ionicModal) {
-  
+  $scope.toggleSecondModal = function() {
+    $scope.showModal = !$scope.showModal;
+  }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
