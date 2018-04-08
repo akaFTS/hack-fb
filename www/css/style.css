@@ -80,7 +80,6 @@ ion-content {
 }
 
 #map {
-    background-color: red;
     position: absolute;
     top: 0;
     left: 0;
@@ -268,21 +267,26 @@ ion-modal-view > .bkdrop {
     height: 100%;
     background-color: rgba(0,0,0, 0.6);
     z-index: 20;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+ion-modal-view > .bkdrop > .scroll {
+    width: 100%;
+}
+
+ion-modal-view > .bkdrop.opaque {
+    opacity: 1;
 }
 
 .supermodal {
-    position: absolute;
-    margin: 0;
-    top: 10px;
-    left: 10px;
+    margin: 0 auto;
     width: calc(100% - 20px);
     padding: 0;
     z-index: 21;
     margin-bottom: 10px;
-}
-
-.hidden {
-    display: none;
 }
 
 .supermodal .super-img {

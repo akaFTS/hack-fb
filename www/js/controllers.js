@@ -14,6 +14,27 @@ angular.module('starter.controllers', [])
             fullscreenControl: false
         });
 
+        var myloc = new google.maps.Marker({
+          clickable: false,
+          icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                                                          new google.maps.Size(22,22),
+                                                          new google.maps.Point(0,18),
+                                                          new google.maps.Point(11,11)),
+          shadow: null,
+          zIndex: 999,
+          map: map
+      });
+      
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          alert("yo");
+          var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+          myloc.setPosition(me);
+          map.setCenter(me);
+        }, function(error) {
+        });
+      }
+
         var features = [{
             position: new google.maps.LatLng(-23.5632054, -46.656439),
             type: 'info',
@@ -61,6 +82,11 @@ angular.module('starter.controllers', [])
 .controller('EventViewCtrl', function($scope, $ionicModal) {
   $scope.toggleSecondModal = function() {
     $scope.showModal = !$scope.showModal;
+  }
+
+  $scope.killModal = function() {
+    $scope.modal.hide();
+    $scope.modal.remove();
   }
 })
 
