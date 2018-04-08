@@ -6,7 +6,7 @@
     <div class="top-banner card-body carnaval-card">
       <div class="bkdrop"></div>
       <h1>Pós-Carnaval</h1>
-      <span class="close" ng-click="modal.hide()">&times;</span>
+      <span class="close" ng-click="killModal()">&times;</span>
     </div>
   </ion-content>
   <ion-scroll direction="x" class="overscroll">
@@ -47,7 +47,7 @@
           </div>
       </div>
   </ion-scroll>
-  <ion-content class="bkdrop" ng-show="showModal">
+  <ion-content class="bkdrop" ng-show="showModal" ng-class="showModal ? 'opaque' : ''">
     <div class="card supermodal" >
     <div class="super-img" back-img="img/augusta.jpg">
       <span class="close" ng-click="toggleSecondModal()">&times;</span>
