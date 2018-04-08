@@ -1,10 +1,13 @@
 <ion-modal-view ng-controller="EventViewCtrl">
-  <ion-content has-bouncing="false">
+  <ion-content has-bouncing="false" id="event-container">
+    <div id="map">
+      Hey there.
+    </div>
     <div class="top-banner card-body carnaval-card">
       <div class="bkdrop"></div>
       <h1>Pós-Carnaval</h1>
       <span class="close" ng-click="modal.hide()">&times;</span>
-    </div>    
+    </div>
   </ion-content>
   <ion-scroll direction="x" class="overscroll">
       <div class="events-carousel">
@@ -40,7 +43,7 @@
           </div>
           <div class="card place-card new-place">
               <span class="icon ion-plus"></span>
-              <span class="new-text">Novo Evento</span>
+              <span class="new-text">Escolher Local</span>
           </div>
       </div>
   </ion-scroll>

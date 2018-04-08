@@ -70,6 +70,25 @@ ion-content {
     background-color: #F06292;
 }
 
+#event-container {
+    width: 100%;
+    height: 100%;
+}
+
+#event-container .scroll {
+    min-height: 100%;
+}
+
+#map {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
 .reveillon-card {
     background: url("../img/reveillon.jpg");
 }
@@ -133,12 +152,12 @@ ion-modal-view {
 }
 
 ion-modal-view .top-banner {
-    min-height: 80px !important;  
+    min-height: 80px !important;
     padding: 0;
     -webkit-box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.5);
     -moz-box-shadow:    0px 1px 4px 0px rgba(50, 50, 50, 0.5);
-    box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.5); 
-    position: relative; 
+    box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.5);
+    position: relative;
 }
 
 ion-modal-view .top-banner .close {
