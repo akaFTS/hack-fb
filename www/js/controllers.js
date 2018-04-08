@@ -16,21 +16,31 @@ angular.module('starter.controllers', [])
 
         var features = [{
             position: new google.maps.LatLng(-23.5632054, -46.656439),
-            type: 'info'
+            type: 'info',
+            cardPosition: 0
         }, {
             position: new google.maps.LatLng(-23.5569532, -46.6611564),
-            type: 'info'
+            type: 'info',
+            cardPosition: 1
         }, {
             position: new google.maps.LatLng(-23.5597883, -46.7303938),
-            type: 'info'
+            type: 'info',
+            cardPosition: 2
         }];
 
+        var node = document.getElementById('ev-scroll').children[0];
         var markers = features.map(function(feature) {
-            return new google.maps.Marker({
+            var marker = new google.maps.Marker({
               position: feature.position,
               icon: 'https://s18.postimg.org/dn3av6ovt/lmss32.png',
               map: map
             });
+            marker.addListener('click', function() {
+                map.setCenter(marker.getPosition());
+                node.style.transform = "translate3d(-" + feature.cardPosition * 215 + "px, 0px, 0px) scale(1)";
+            });
+
+            return marker;
         });
 
         // Add a marker clusterer to manage the markers.
