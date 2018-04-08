@@ -1,0 +1,47 @@
+<ion-modal-view>
+  <ion-content ng-controller="EventViewCtrl" has-bouncing="false">
+    <div class="top-banner card-body carnaval-card">
+      <div class="bkdrop"></div>
+      <h1>Pós-Carnaval</h1>
+      <span class="close" ng-click="modal.hide()">&times;</span>
+    </div>    
+  </ion-content>
+  <ion-scroll direction="x" class="overscroll">
+      <div class="events-carousel">
+          <div class="card place-card">
+            <div class="place-img" back-img="img/paulista.jpg">
+              <div class="friends-list">
+                  <img src="img/max.png" alt="">
+                  <img src="img/mike.png" alt="">
+                  <img src="img/perry.png" alt="">
+              </div>
+            </div>
+            <div class="placetime">
+              <div class="placecombo">
+                  <span class="place">Av. Paulista</span>
+              </div>
+              <span class="time">15:30</span>
+            </div>
+          </div>
+          <div class="card place-card">
+            <div class="place-img" back-img="img/augusta.jpg">
+              <div class="friends-list">
+                  <img src="img/adam.jpg" alt="">
+                  <img src="img/ben.png" alt="">
+              </div>
+            </div>
+            <div class="placetime">
+              <div class="placecombo">
+                <span class="place">Casa Comigo?</span>
+                <span class="location">R. Caio Prado, 256</span>
+              </div>
+              <span class="time">17:00</span>
+            </div>
+          </div>
+          <div class="card place-card new-place">
+              <span class="icon ion-plus"></span>
+              <span class="new-text">Novo Evento</span>
+          </div>
+      </div>
+  </ion-scroll>
+</ion-modal-view>

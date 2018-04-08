@@ -1,1 +1,240 @@
 /* Empty. Add your own CSS if you like */
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Comfortaa|Gloria+Hallelujah');
+
+ion-content {
+    background-color: #eee;
+}
+
+.tabs-icon-top > .tabs .tab-item {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.bar .title {
+    font-weight: bold;
+}
+
+.event-card {
+    min-height: 120px;
+    position: relative;
+    padding: 0;
+    margin-top: 0;
+}
+
+.card-body {
+    padding: 20px 0;
+    min-height: 120px;
+    position: relative;
+}
+
+.card-body .bkdrop {
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.card-body h1 {
+    margin: 0;
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    color: white;
+    font-size: 38px;
+    line-height: 2.2;
+}
+
+.card-body .info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.carnaval-card {
+    background: url("../img/carnaval.jpg");
+}
+.carnaval-card h1 {
+    font-family: "Gloria Hallelujah";
+    text-transform: uppercase;
+}
+.carnaval-card .bkdrop {
+    background-color: #F06292;
+}
+
+.reveillon-card {
+    background: url("../img/reveillon.jpg");
+}
+.reveillon-card h1 {
+    font-family: "Bad Script";
+}
+.reveillon-card .bkdrop {
+    background-color: #000;
+}
+
+.friends-bar {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.friends-bar .date {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.friends-bar .date .month {
+    color: #D72219;
+}
+
+.friends-bar .date .day {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.friends-bar img {
+    height: 45px;
+    width: 45px;
+    border-radius: 30px;
+    border: 2px solid #FFF;
+    margin-left: -15px;
+}
+
+.friends-bar .more-friends {
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
+    border: 2px solid #FFF;
+    background-color: #DDD;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 2.5;
+    color: #666;
+    margin-left: -15px;
+}
+
+
+/* EVENT VIEW */
+
+ion-modal-view {
+    position: relative;
+}
+
+ion-modal-view .top-banner {
+    min-height: 80px !important;  
+    padding: 0;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    0px 1px 4px 0px rgba(50, 50, 50, 0.5);
+    box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.5); 
+    position: relative; 
+}
+
+ion-modal-view .top-banner .close {
+    font-family: "Comfortaa";
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 5;
+    color: white;
+    font-size: 36px;
+    opacity: 0.6;
+}
+
+.events-carousel {
+    width: 650px;
+    display: flex;
+}
+
+.events-carousel .place-card {
+    width: 200px;
+    padding: 0;
+}
+
+.events-carousel .place-card .place-img {
+    background-position: center;
+    background-size: cover;
+    height: 80px;
+    padding: 5px;
+}
+
+.friends-list {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.friends-list img {
+    height: 45px;
+    width: 45px;
+    border-radius: 30px;
+    border: 2px solid #FFF;
+    margin-left: -15px;
+}
+
+.friends-list img:first-child {
+    margin-left: 0;
+}
+
+.events-carousel .place-card .placetime {
+    padding: 5px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+}
+
+.events-carousel .place-card .placecombo {
+    display: flex;
+    flex-direction: column;
+}
+
+.events-carousel .place-card .placetime .place{
+    color: #444;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.events-carousel .place-card .placetime .location{
+    color: #888;
+    font-size: 13px;
+}
+
+.events-carousel .place-card .placetime .time{
+    color: #D72219;
+    font-size: 15px;
+}
+
+.place-card.new-place {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.place-card.new-place .icon{
+    color: #D72219;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.place-card.new-place .new-text{
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.overscroll {
+    margin-top: 125%;
+}
