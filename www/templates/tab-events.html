@@ -1,40 +1,22 @@
-<ion-view view-title="Trending Events">
+<ion-view view-title="Eventos Próximos">
   <ion-content class="padding">
 
-    <div class="card event-card" ng-click="openModal()">
-      <div class="card-body carnaval-card">
-        <div class="bkdrop"></div>
-        <h1>Pós-Carnaval</h1>
-      </div>
-      <div class="friends-bar">
-        <div class="date">
-          <span class="month">FEV</span>
-          <span class="day">17</span>
-        </div>
-        <img src="img/max.png" alt="">
-        <img src="img/mike.png" alt="">
-        <img src="img/perry.png" alt="">
-        <img src="img/ben.png" alt="">
-        <div class="more-friends">
-          +15
-        </div>
-      </div>
-    </div>
-
-    <div class="card event-card">
-        <div class="card-body reveillon-card">
-          <div class="bkdrop"></div>
-          <h1>Reveillon</h1>
+    <div class="card event-card" ng-click="openModal(event)" ng-repeat="event in events">
+      <div class="card-body {{event.font_family}}-card" back-img="{{event.photo}}">
+          <div class="bkdrop" ng-style="{'background-color':event.color}"></div>
+          <h1>{{event.name}}</h1>
         </div>
         <div class="friends-bar">
-            <div class="date">
-                <span class="month">DEZ</span>
-                <span class="day">31</span>
-              </div>
-            <img src="img/adam.jpg" alt="">
-            <img src="img/ben.png" alt="">
-            <img src="img/max.png" alt="">
-        </div>
+          <div class="date">
+            <span class="month">{{event.event_date | date:"MMM":"+0000"}}</span>
+            <span class="day">{{event.event_date | date:"dd":"+0000"}}</span>
+          </div>
+          <img ng-src="{{person.user_photo}}" ng-repeat="person in people | limitTo:4">
+          <div class="more-friends">
+            +{{event.num_friends % 100}}
+          </div>
+        </div> 
+      </div>     
     </div>
   </ion-content>
 </ion-view>

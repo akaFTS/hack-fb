@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('EventsCtrl', function($scope, $ionicModal) {
+.controller('EventsCtrl', function($scope, $ionicModal, $ionicScrollDelegate, eventService) {
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
@@ -58,29 +58,44 @@ angular.module('starter.controllers', [])
             });
             marker.addListener('click', function() {
                 map.setCenter(marker.getPosition());
-                node.style.transform = "translate3d(-" + feature.cardPosition * 215 + "px, 0px, 0px) scale(1)";
+                $ionicScrollDelegate.$getByHandle('event-handle').scrollTo(feature.cardPosition * 215, 0, true);
             });
 
             return marker;
         });
-
-        // Add a marker clusterer to manage the markers.
-        // var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     }
 
-    $scope.openModal = function() {
+    $scope.openModal = function(event) {
         $ionicModal.fromTemplateUrl('templates/event-view.html', {
           scope: $scope
         }).then(function(modal) {
           $scope.modal = modal;
+          $scope.event = event;
+
+          eventService.getPlaces(event.id).then((places) => {
+            $scope.places = places;
+            console.log(places);
+          });
+
           $scope.modal.show();
           initMap();
         });
     }
+
+    $scope.events = [];
+    $scope.people = [];
+    eventService.getEvents().then((events) => {
+      $scope.events = events;
+    });
+
+    eventService.getParticipants().then((people) => {
+      $scope.people = people;
+    });
 })
 
-.controller('EventViewCtrl', function($scope, $ionicModal) {
-  $scope.toggleSecondModal = function() {
+.controller('EventViewCtrl', function($scope, $ionicModal, eventService) {
+  $scope.toggleSecondModal = function(place) {
+    $scope.selplace = place;
     $scope.showModal = !$scope.showModal;
   }
 

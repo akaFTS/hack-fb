@@ -10,3 +10,29 @@ angular.module('starter.services', [])
       });
   };
 })
+
+.service("eventService", function($http, $q) {
+    this.getEvents = function() {
+        var deferred = $q.defer();
+        $http.get("http://hackfb.us-west-2.elasticbeanstalk.com/events.json").then(function(data) {
+            return deferred.resolve(data.data);
+        });
+        return deferred.promise;
+    }
+
+    this.getParticipants = function() {
+        var deferred = $q.defer();
+        $http.get("http://hackfb.us-west-2.elasticbeanstalk.com/events/1/confirmations.json").then(function(data) {
+            return deferred.resolve(data.data);
+        });
+        return deferred.promise;        
+    }
+
+    this.getPlaces = function(id) {
+        var deferred = $q.defer();
+        $http.get("http://hackfb.us-west-2.elasticbeanstalk.com/events/"+id+"/places.json").then(function(data) {
+            return deferred.resolve(data.data);
+        });
+        return deferred.promise;  
+    }
+})

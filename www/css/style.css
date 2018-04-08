@@ -59,15 +59,9 @@ ion-content {
     background-position: center;
 }
 
-.carnaval-card {
-    background: url("../img/carnaval.jpg");
-}
 .carnaval-card h1 {
     font-family: "Gloria Hallelujah";
     text-transform: uppercase;
-}
-.carnaval-card .bkdrop {
-    background-color: #F06292;
 }
 
 #event-container {
@@ -88,14 +82,8 @@ ion-content {
     margin: auto;
 }
 
-.reveillon-card {
-    background: url("../img/reveillon.jpg");
-}
 .reveillon-card h1 {
     font-family: "Bad Script";
-}
-.reveillon-card .bkdrop {
-    background-color: #000;
 }
 
 .friends-bar {
@@ -114,6 +102,7 @@ ion-content {
 
 .friends-bar .date .month {
     color: #D72219;
+    text-transform: uppercase;
 }
 
 .friends-bar .date .day {
@@ -171,7 +160,7 @@ ion-modal-view .top-banner .close {
 }
 
 .events-carousel {
-    width: 650px;
+    width: 900px;
     display: flex;
 }
 
@@ -329,6 +318,7 @@ ion-modal-view > .bkdrop.opaque {
 
 .supertime .date .month {
     color: #D72219;
+    text-transform: uppercase;
 }
 
 .supertime .date .day {
@@ -391,6 +381,10 @@ ion-modal-view > .bkdrop.opaque {
     padding: 5px 15px;
     color: #666;
     margin: 0 5px 10px;
+}
+
+.go-button.green {
+    color: #1B5E20;
 }
 
 .comments-area {

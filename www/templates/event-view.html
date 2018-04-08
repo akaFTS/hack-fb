@@ -3,63 +3,49 @@
     <div id="map">
       Hey there.
     </div>
-    <div class="top-banner card-body carnaval-card">
-      <div class="bkdrop"></div>
-      <h1>Pós-Carnaval</h1>
+    <div class="top-banner card-body {{event.font_family}}-card" back-img="{{event.photo}}">
+      <div class="bkdrop" ng-style="{'background-color':event.color}"></div>
+      <h1>{{event.name}}</h1>
       <span class="close" ng-click="killModal()">&times;</span>
     </div>
   </ion-content>
-  <ion-scroll id="ev-scroll" direction="x" class="overscroll">
+  <ion-scroll id="ev-scroll" direction="x" class="overscroll" delegate-handle="event-handle">
       <div class="events-carousel">
-          <div class="card place-card" ng-click="toggleSecondModal()">
-            <div class="place-img" back-img="img/paulista.jpg">
+
+        <div class="card place-card" ng-click="toggleSecondModal(place)" ng-repeat="place in places">
+            <div class="place-img" back-img="{{place.photo}}">
               <div class="friends-list">
                   <img src="img/mike.png" alt="">
                   <img src="img/perry.png" alt="">
               </div>
-            </div>
-            <div class="placetime">
-              <div class="placecombo">
-                  <span class="place">Av. Paulista</span>
-              </div>
-              <span class="time">15:30</span>
-            </div>
-          </div>
-          <div class="card place-card" ng-click="toggleSecondModal()">
-            <div class="place-img" back-img="img/augusta.jpg">
-              <div class="friends-list">
-                  <img src="img/adam.jpg" alt="">
-                  <img src="img/ben.png" alt="">
-                  <img src="img/max.png" alt="">
-              </div>
-            </div>
-            <div class="placetime">
-              <div class="placecombo">
-                <span class="place">Casa Comigo?</span>
-                <span class="location">R. Caio Prado, 256</span>
+            </div> 
+            <div class="placetime"> 
+            <div class="placecombo">
+                <span class="place">{{place.name}}</span>
+                <span class="location">{{place.address}}</span>
               </div>
               <span class="time">17:00</span>
-            </div>
-          </div>
-          <div class="card place-card new-place">
-              <span class="icon ion-plus"></span>
-              <span class="new-text">Escolher Local</span>
-          </div>
+            </div>        
+        </div>
+        <div class="card place-card new-place">
+            <span class="icon ion-plus"></span>
+            <span class="new-text">Novo Local</span>
+        </div>
       </div>
   </ion-scroll>
   <ion-content class="bkdrop" ng-show="showModal" ng-class="showModal ? 'opaque' : ''">
     <div class="card supermodal" >
-    <div class="super-img" back-img="img/augusta.jpg">
+    <div class="super-img" back-img="{{selplace.photo}}">
       <span class="close" ng-click="toggleSecondModal()">&times;</span>
     </div>
     <div class="supertime">
         <div class="date">
-          <span class="month">FEV</span>
-          <span class="day">17</span>
+          <span class="month">{{event.event_date | date:"MMM":"+0000"}}</span>
+          <span class="day">{{event.event_date | date:"dd":"+0000"}}</span>
         </div>
         <div class="placecombo">
-          <span class="place">Casa Comigo?</span>
-          <span class="location">R. Caio Prado, 256</span>
+          <span class="place">{{selplace.name}}</span>
+          <span class="location">{{selplace.address}}</span>
         </div>
         <div class="time">17:00</div>
     </div>
@@ -80,8 +66,8 @@
       </div>
     </ion-scroll>
     <div class="button-area">
-      <button class="go-button">
-        <span class="ion-checkmark-round"></span> Participar
+      <button class="go-button" ng-class="participating ? 'green' : ''" ng-click="participating = !participating">
+        <span class="ion-checkmark-round"></span> {{participating ? "Participando" : "Participar"}}
       </button>
       <button class="go-button">
           <span class="ion-reply"></span> Convidar
@@ -89,27 +75,28 @@
     </div>
     <div class="comments-area">
       <div class="comment">
-        <img class="commenter" src="img/adam.jpg">
+        <img class="commenter" src="img/lucas-santos.jpg">
         <div class="comm-text">
-          <span class="comm-title">Adam</span>
+          <span class="comm-title">Lucas</span>
           <span class="comm-body">Onde vocês vão se encontrar?</span>
         </div>
       </div>
       <div class="comment">
-          <img class="commenter" src="img/ben.png">
+          <img class="commenter" src="img/leonardo-padilha.jpg">
           <div class="comm-text">
-            <span class="comm-title">Ben</span>
+            <span class="comm-title">Leonardo</span>
             <span class="comm-body">Na saída do metrô!</span>
           </div>
       </div>
-      <div class="enter-sign"><span class="enter-name">Adam</span> convidou <span class="enter-name">Max</span></div>
+      <div class="enter-sign"><span class="enter-name">Lucas</span> convidou <span class="enter-name">Gabriel</span></div>
       <div class="comment">
-          <img class="commenter" src="img/max.png">
+          <img class="commenter" src="img/gabriel-souza.jpg">
           <div class="comm-text">
-            <span class="comm-title">Max</span>
+            <span class="comm-title">Gabriel</span>
             <span class="comm-body">E aí, pessoas!</span>
           </div>
       </div>
+      <div class="enter-sign" ng-show="participating"><span class="enter-name">Gustavo</span> agora está participando.</div>
     </div>
     <div class="comment-form">
       <input class="comment-input" placeholder="Escreva uma mensagem...">
