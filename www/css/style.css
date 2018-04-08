@@ -219,18 +219,18 @@ ion-modal-view .top-banner .close {
     flex-direction: column;
 }
 
-.events-carousel .place-card .placetime .place{
+.events-carousel .place-card .placetime .place {
     color: #000;
     font-size: 16px;
     font-weight: 500;
 }
 
-.events-carousel .place-card .placetime .location{
+.events-carousel .place-card .placetime .location {
     color: #888;
     font-size: 13px;
 }
 
-.events-carousel .place-card .placetime .time{
+.events-carousel .place-card .placetime .time {
     color: #D72219;
     font-size: 15px;
 }
@@ -242,13 +242,13 @@ ion-modal-view .top-banner .close {
     align-items: center;
 }
 
-.place-card.new-place .icon{
+.place-card.new-place .icon {
     color: #D72219;
     font-size: 28px;
     margin-bottom: 8px;
 }
 
-.place-card.new-place .new-text{
+.place-card.new-place .new-text {
     color: #666;
     font-size: 16px;
     font-weight: 500;
@@ -266,8 +266,7 @@ ion-modal-view > .bkdrop {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
-    opacity: 0.6;
+    background-color: rgba(0,0,0, 0.6);
     z-index: 20;
 }
 
@@ -277,9 +276,9 @@ ion-modal-view > .bkdrop {
     top: 10px;
     left: 10px;
     width: calc(100% - 20px);
-    height: calc(100vh - 20px);
     padding: 0;
     z-index: 21;
+    margin-bottom: 10px;
 }
 
 .hidden {
@@ -333,18 +332,18 @@ ion-modal-view > .bkdrop {
     font-weight: bold;
 }
 
-.supertime .place{
+.supertime .place {
     color: #000;
     font-size: 16px;
     font-weight: 500;
 }
 
-.supertime .location{
+.supertime .location {
     color: #888;
     font-size: 13px;
 }
 
-.supertime .time{
+.supertime .time {
     text-align: right;
     flex: 1 1 0;
     color: #D72219;
@@ -355,34 +354,113 @@ ion-modal-view > .bkdrop {
     padding: 10px 0;
     margin: 0 10px;
     display: flex;
-    border-bottom: 1px solid #EEE;
 }
 
-.friends-carousel .friend{
+.friends-carousel .friend {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 5px;
 }
 
-.friends-carousel .friend img{
+.friends-carousel .friend img {
     width: 50px;
     height: 50px;
     border-radius: 30px;
 }
 
-.friends-carousel .friend span{
+.friends-carousel .friend span {
     font-weight: 500;
     color: #444;
 }
 
+.button-area {
+    display: flex;
+    margin: 0 5px 5px;
+}
+
 .go-button {
+    flex: 1 1 0;
     background-color: #F5F5F5;
-    display: block;
-    width: calc(100% - 20px);
-    margin: 0 10px;
     border: none;
     font-size: 17px;
     padding: 5px 15px;
     color: #666;
+    margin: 0 5px 10px;
+}
+
+.comments-area {
+    background-color: #EEE;
+    padding: 10px;
+}
+
+.comments-area .comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.comments-area .comment img {
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    margin-right: 8px;
+}
+
+.comments-area .comment .comm-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-area .comment .comm-title {
+    color: #D72219;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 0.9;
+}
+
+.comments-area .comment .comm-body {
+    color: #555;
+    font-size: 14px;
+}
+
+.comments-area .enter-sign {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #999;
+}
+
+.comments-area .enter-name {
+    color: #666;
+    font-weight: 600;
+}
+
+.comment-form {
+    border: 1px solid #BBB;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.comment-input {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding-right: 30px;
+    height: 30px;
+}
+
+.comment-button {
+    border: none;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-size: 22px;
+    line-height: 0.9;
+    background-color: #D72219;
+    color: white;
+    height: 26px;
+    width: 26px;
+    border-radius: 20px;
 }
