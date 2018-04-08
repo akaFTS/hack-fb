@@ -11,7 +11,6 @@
           <div class="card place-card" ng-click="toggleSecondModal()">
             <div class="place-img" back-img="img/paulista.jpg">
               <div class="friends-list">
-                  <img src="img/max.png" alt="">
                   <img src="img/mike.png" alt="">
                   <img src="img/perry.png" alt="">
               </div>
@@ -28,6 +27,7 @@
               <div class="friends-list">
                   <img src="img/adam.jpg" alt="">
                   <img src="img/ben.png" alt="">
+                  <img src="img/max.png" alt="">
               </div>
             </div>
             <div class="placetime">
@@ -44,8 +44,8 @@
           </div>
       </div>
   </ion-scroll>
-  <div class="bkdrop" ng-show="showModal"></div>
-  <div class="card supermodal" ng-show="showModal">
+  <ion-content class="bkdrop" ng-show="showModal">
+    <div class="card supermodal" >
     <div class="super-img" back-img="img/augusta.jpg">
       <span class="close" ng-click="toggleSecondModal()">&times;</span>
     </div>
@@ -69,11 +69,50 @@
         <div class="friend">
             <img src="img/ben.png" alt="">
             <span class="text">Ben</span>
-          </div>
+        </div>
+        <div class="friend">
+            <img src="img/max.png" alt="">
+            <span class="text">Max</span>
+        </div>
       </div>
     </ion-scroll>
-    <button class="go-button">
-      <span class="fa fa-check"></span> Participar
-    </button>
-  </div>
+    <div class="button-area">
+      <button class="go-button">
+        <span class="ion-checkmark-round"></span> Participar
+      </button>
+      <button class="go-button">
+          <span class="ion-reply"></span> Convidar
+      </button>
+    </div>
+    <div class="comments-area">
+      <div class="comment">
+        <img class="commenter" src="img/adam.jpg">
+        <div class="comm-text">
+          <span class="comm-title">Adam</span>
+          <span class="comm-body">Onde vocês vão se encontrar?</span>
+        </div>
+      </div>
+      <div class="comment">
+          <img class="commenter" src="img/ben.png">
+          <div class="comm-text">
+            <span class="comm-title">Ben</span>
+            <span class="comm-body">Na saída do metrô!</span>
+          </div>
+      </div>
+      <div class="enter-sign"><span class="enter-name">Adam</span> convidou <span class="enter-name">Max</span></div>
+      <div class="comment">
+          <img class="commenter" src="img/max.png">
+          <div class="comm-text">
+            <span class="comm-title">Max</span>
+            <span class="comm-body">E aí, pessoas!</span>
+          </div>
+      </div>
+    </div>
+    <div class="comment-form">
+      <input class="comment-input" placeholder="Escreva uma mensagem...">
+      <button class="comment-button">
+        <span class="ion-arrow-up-c"></span>
+      </button>
+    </div>
+  </ion-content>
 </ion-modal-view>
