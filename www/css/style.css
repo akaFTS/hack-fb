@@ -1,5 +1,5 @@
 /* Empty. Add your own CSS if you like */
-@import url('https://fonts.googleapis.com/css?family=Bad+Script|Comfortaa|Gloria+Hallelujah');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Black+Ops+One|Comfortaa|Gloria+Hallelujah');
 
 ion-content {
     background-color: #eee;
@@ -86,6 +86,10 @@ ion-content {
     font-family: "Bad Script";
 }
 
+.futebol-card h1 {
+    font-family: "Black Ops One";
+}
+
 .friends-bar {
     padding: 6px;
     display: flex;
@@ -160,7 +164,7 @@ ion-modal-view .top-banner .close {
 }
 
 .events-carousel {
-    width: 900px;
+    width: 2500px;
     display: flex;
 }
 
@@ -243,7 +247,7 @@ ion-modal-view .top-banner .close {
 }
 
 .overscroll {
-    margin-top: 125%;
+    margin-top: 115%;
 }
 
 /* SECOND MODAL */
@@ -258,8 +262,6 @@ ion-modal-view > .bkdrop {
     z-index: 20;
     opacity: 0;
     transition: opacity .3s ease-in-out;
-    display: flex;
-    align-items: center;
 }
 
 ion-modal-view > .bkdrop > .scroll {

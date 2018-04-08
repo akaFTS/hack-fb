@@ -35,4 +35,12 @@ angular.module('starter.services', [])
         });
         return deferred.promise;  
     }
+
+    this.getPeople = function(place) {
+        var deferred = $q.defer();
+        $http.get("http://hackfb.us-west-2.elasticbeanstalk.com/places/"+place+"/confirmations.json").then(function(data) {
+            return deferred.resolve(data.data);
+        });
+        return deferred.promise;          
+    }
 })

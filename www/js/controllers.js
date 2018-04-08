@@ -74,7 +74,14 @@ angular.module('starter.controllers', [])
 
           eventService.getPlaces(event.id).then((places) => {
             $scope.places = places;
-            console.log(places);
+
+            angular.forEach($scope.places, (place) => {
+              eventService.getPeople(place.id).then((people) => {
+                place.people = people;
+                console.log(people);
+              });
+            });
+
           });
 
           $scope.modal.show();
@@ -82,14 +89,34 @@ angular.module('starter.controllers', [])
         });
     }
 
+    var shuffleArray = function(array) {
+      var m = array.length, t, i;
+      array = array.slice();
+      // While there remain elements to shuffle
+      while (m) {
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+    
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+      }
+    
+      return array;
+    }
+
     $scope.events = [];
     $scope.people = [];
     eventService.getEvents().then((events) => {
       $scope.events = events;
-    });
 
-    eventService.getParticipants().then((people) => {
-      $scope.people = people;
+      eventService.getParticipants().then((people) => {
+
+        angular.forEach($scope.events, (event) => {
+          event.people = shuffleArray(people);
+        });
+      });
     });
 })
 

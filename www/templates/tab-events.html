@@ -11,7 +11,7 @@
             <span class="month">{{event.event_date | date:"MMM":"+0000"}}</span>
             <span class="day">{{event.event_date | date:"dd":"+0000"}}</span>
           </div>
-          <img ng-src="{{person.user_photo}}" ng-repeat="person in people | limitTo:4">
+          <img ng-src="{{person.user_photo}}" ng-repeat="person in event.people | limitTo:4">
           <div class="more-friends">
             +{{event.num_friends % 100}}
           </div>

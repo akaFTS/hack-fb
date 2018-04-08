@@ -15,8 +15,7 @@
         <div class="card place-card" ng-click="toggleSecondModal(place)" ng-repeat="place in places">
             <div class="place-img" back-img="{{place.photo}}">
               <div class="friends-list">
-                  <img src="img/mike.png" alt="">
-                  <img src="img/perry.png" alt="">
+                  <img ng-src="{{person.user_photo}}" ng-repeat="person in place.people">
               </div>
             </div> 
             <div class="placetime"> 
@@ -51,23 +50,15 @@
     </div>
     <ion-scroll direction="x">
       <div class="friends-carousel">
-        <div class="friend">
-          <img src="img/adam.jpg" alt="">
-          <span class="text">Adam</span>
-        </div>
-        <div class="friend">
-            <img src="img/ben.png" alt="">
-            <span class="text">Ben</span>
-        </div>
-        <div class="friend">
-            <img src="img/max.png" alt="">
-            <span class="text">Max</span>
+        <div class="friend" ng-repeat="person in selplace.people">
+          <img ng-src="{{person.user_photo}}">
+          <span class="text">{{person.user_name}}</span>
         </div>
       </div>
     </ion-scroll>
     <div class="button-area">
-      <button class="go-button" ng-class="participating ? 'green' : ''" ng-click="participating = !participating">
-        <span class="ion-checkmark-round"></span> {{participating ? "Participando" : "Participar"}}
+      <button class="go-button" ng-class="selplace.participating ? 'green' : ''" ng-click="selplace.participating = !selplace.participating">
+        <span class="ion-checkmark-round"></span> {{selplace.participating ? "Participando" : "Participar"}}
       </button>
       <button class="go-button">
           <span class="ion-reply"></span> Convidar
@@ -96,7 +87,7 @@
             <span class="comm-body">E aí, pessoas!</span>
           </div>
       </div>
-      <div class="enter-sign" ng-show="participating"><span class="enter-name">Gustavo</span> agora está participando.</div>
+      <div class="enter-sign" ng-show="selplace.participating"><span class="enter-name">Gustavo</span> agora está participando.</div>
     </div>
     <div class="comment-form">
       <input class="comment-input" placeholder="Escreva uma mensagem...">
