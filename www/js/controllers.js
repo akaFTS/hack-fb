@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('EventsCtrl', function($scope, $ionicModal, $ionicScrollDelegate, eventService) {
-    function initMap() {
+    function initMap(event) {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
             center: {lat: -23.5616153, lng: -46.6849476},
@@ -34,6 +34,11 @@ angular.module('starter.controllers', [])
         }, function(error) {
         });
       }
+
+      eventService.getClusters(event.id).then((clusters) => {
+        console.log(clusters);
+      });
+
 
         var features = [{
             position: new google.maps.LatLng(-23.5632054, -46.656439),
@@ -78,14 +83,13 @@ angular.module('starter.controllers', [])
             angular.forEach($scope.places, (place) => {
               eventService.getPeople(place.id).then((people) => {
                 place.people = people;
-                console.log(people);
               });
             });
 
           });
 
           $scope.modal.show();
-          initMap();
+          initMap(event);
         });
     }
 

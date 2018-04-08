@@ -43,4 +43,12 @@ angular.module('starter.services', [])
         });
         return deferred.promise;          
     }
+
+    this.getClusters = function(event) {
+        var deferred = $q.defer();
+        $http.get("http://hackfb.us-west-2.elasticbeanstalk.com/events/"+event+"/clusters.json").then(function(data) {
+            return deferred.resolve(data.data);
+        });
+        return deferred.promise;          
+    }
 })
